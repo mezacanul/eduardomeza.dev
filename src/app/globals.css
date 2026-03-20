@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-space: var(--next-font-space-grotesk), sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-space);
+    scroll-behavior: smooth;
+  }
+}
+
+/* Colors */
+@theme {
+  --color-dark: #151515;
+  --color-gray: #242424;
+  --color-green: #4ee1a0;
+  --color-red: #ff6f5b;
+  --color-light-200: #d9d9d9;
+  --color-light-100: #ffffff;
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .px-container {
+    @apply px-[1rem] sm:px-[4rem] lg:px-[10rem];
+  }
+}
+
+/* Text Utilities */
+@layer utilities {
+  .text-1-bold {
+    @apply text-[88px]/[88px] tracking-[-2.5px] font-bold;
+  }
+
+  .text-2-bold {
+    @apply text-[48px]/[56px] tracking-[-1.5px] font-bold;
+  }
+
+  .text-3-bold {
+    @apply text-[24px]/[32px] font-bold;
+  }
+
+  .text-3-regular {
+    @apply text-[18px]/[28px] font-normal;
+  }
+}
