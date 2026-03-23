@@ -3,7 +3,9 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import LangOptions from "../common/LangOptions";
 
 export default function Header({ cms }: { cms: any }) {
+  // console.log("cms", cms);
   const { logo, social } = cms;
+  
   return (
     <header className="fixed inset-0 z-50 px-container h-[10vh] flex items-center justify-between">
       <p className="h3-bold">{logo}</p>

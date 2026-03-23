@@ -9,7 +9,7 @@ export default function LangOptions() {
     cn([
       "transition-all p1 duration-300 border-b-2 border-transparent",
       lang === current
-        ? "text-green font-normal cursor-default"
+        ? "text-green font-bold cursor-default"
         : "font-light hover:border-green",
     ]);
 
