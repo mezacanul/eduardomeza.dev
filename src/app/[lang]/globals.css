@@ -30,19 +30,26 @@
 
 /* Text Utilities */
 @layer utilities {
-  .text-1-bold {
+  .h1-bold {
     @apply text-[88px]/[88px] tracking-[-2.5px] font-bold;
   }
 
-  .text-2-bold {
+  .h2-bold {
     @apply text-[48px]/[56px] tracking-[-1.5px] font-bold;
   }
 
-  .text-3-bold {
+  .h3-bold {
     @apply text-[24px]/[32px] font-bold;
   }
 
-  .text-3-regular {
+  .h4-bold {
+    @apply text-[18px]/[28px] font-bold;
+  }
+  .h4-regular {
     @apply text-[18px]/[28px] font-normal;
+  }
+
+  .p1 {
+    @apply text-[16px]/[24px];
   }
 }
