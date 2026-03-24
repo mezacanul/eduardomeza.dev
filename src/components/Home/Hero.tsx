@@ -55,7 +55,7 @@ export default function Hero({ cms }: { cms: any }) {
       <div
         className={cn(
           "relative md:absolute",
-          "right-0 md:-right-12 xl:-right-5 top-0 px-container",
+          "right-0 md:-right-12 xl:-right-5 top-0 md:px-container",
           "w-[60%] md:w-[65%] lg:w-[60%] h-[35dvh] md:h-full"
         )}
       >

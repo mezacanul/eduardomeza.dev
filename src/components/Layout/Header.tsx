@@ -30,14 +30,19 @@ export default function Header({ cms }: { cms: any }) {
         isScrolled && "md:bg-gray"
       )}
     >
-      <p
-        className={cn(
-          "h3-bold cursor-default",
-          styles.hover
-        )}
-      >
-        {logo}
-      </p>
+      <div className="relative w-full flex justify-center md:justify-start">
+        <p
+          className={cn(
+            "h3-bold cursor-default",
+            styles.hover
+          )}
+        >
+          {logo}
+        </p>
+        <div className="block md:hidden absolute top-1.5 right-0">
+          <LangOptions />
+        </div>
+      </div>
 
       <div
         className={cn(
@@ -46,7 +51,7 @@ export default function Header({ cms }: { cms: any }) {
         )}
       >
         {/* Language Options */}
-        <div className="hidden md:block">
+        <div className="hidden md:block md:mt-1">
           <LangOptions />
         </div>
 

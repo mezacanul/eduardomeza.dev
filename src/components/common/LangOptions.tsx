@@ -14,7 +14,7 @@ export default function LangOptions() {
     ]);
 
   return (
-    <div className="flex gap-2 items-center">
+    <div className={cn(" flex gap-2 items-center")}>
       <Link
         href={lang === "es" ? "#" : "/es"}
         className={isActive("es")}
