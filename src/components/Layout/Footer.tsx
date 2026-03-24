@@ -16,23 +16,38 @@ export default function Footer({ cms }: { cms: any }) {
   return (
     <footer
       className={cn(
-        "px-container relative flex justify-between w-full gap-4 bg-gray pt-[6rem] pb-[4rem]",
-        "grid grid-cols-2 gap-x-35 gap-y-20"
+        "px-container relative flex flex-col gap-15 w-full bg-gray pt-[6rem] pb-[4rem]",
+        "items-center xl:items-start"
       )}
     >
-      <div className="flex flex-col gap-4">
-        <h1 className="h1-bold">{title}</h1>
-        <p className="h4-regular w-[80%]">{description}</p>
-      </div>
+      <div
+        className={cn(
+          "w-full md:w-[70%] xl:w-full gap-4",
+          "xl:grid grid-cols-2 xl:gap-x-35 xl:gap-y-20",
+          "flex flex-col gap-10"
+        )}
+      >
+        <div className="flex flex-col gap-4">
+          <h1 className="h1-bold text-center xl:text-left">
+            {title}
+          </h1>
+          <p className="h4-regular w-full xl:w-[80%] text-center xl:text-left">
+            {description}
+          </p>
+        </div>
 
-      <Form form={form} cns={cns} />
+        <Form form={form} cns={cns} />
+      </div>
 
       <Nav cms={cms} />
 
       <RingPatterns
         src={cms.images.patternRings}
-        size="600px"
-        coords={{ x: "-10%", y: "47%" }}
+        size={["500px", "450px", "550px"]}
+        coords={{
+          x: ["-90%", "-30%", "-15%"],
+          y: ["60%", "65%", "47%"],
+        }}
       />
     </footer>
   );
@@ -74,7 +89,7 @@ function Nav({ cms }: { cms: any }) {
     hover: "hover:text-green transition-all duration-300",
   };
   return (
-    <div className="flex col-span-2 justify-between pt-7 border-t border-white">
+    <div className="flex col-span-2 justify-between pt-7 border-t border-white w-full">
       <h3
         className={cn(
           "h3-bold cursor-default",
