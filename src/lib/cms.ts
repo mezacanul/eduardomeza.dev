@@ -19,3 +19,18 @@ export async function fetchCMSData({
   }
   return res.json();
 }
+
+export async function fetchProjectData({
+  region,
+  projectId,
+}: {
+  region: string;
+  projectId: string;
+}) {
+  const url = `${process.env.NEXT_PUBLIC_CMS_URL}/api/locale/${region}?path=projects&projectId=${projectId}`;
+  const res = await fetch(url, { cache: "no-store" });
+  if (!res.ok) {
+    throw new Error("Failed to fetch project data");
+  }
+  return res.json();
+}

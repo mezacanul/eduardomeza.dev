@@ -1,6 +1,7 @@
 import { fetchCMSData } from "@/lib/cms";
 import Hero from "@/components/Home/Hero";
 import Skills from "@/components/Home/Skills";
+import Projects from "@/components/Home/Projects";
 
 export default async function Home({
   params,
@@ -9,26 +10,25 @@ export default async function Home({
 }) {
   const { lang } = await params;
   console.log("lang", lang);
-  // const mainData = await fetchCMSData({
-  //   region: lang,
-  // });
+  const mainData = await fetchCMSData({
+    region: lang,
+  });
   const homeData = await fetchCMSData({
     region: lang,
     path: "home",
   });
-  console.log("homeData", homeData.skills);
+  console.log("skills from page.tsx", homeData.skills);
 
   return (
-    <>
+    <div>
       <Hero
         cms={{
           home: homeData,
-          // main: mainData,
+          main: mainData,
         }}
       />
-      <Skills skills={homeData.skills} />
-      {/* <p>{JSON.stringify(homeData.skills.title)}</p> */}
-      <p>{homeData.hero.title.top}</p>
-    </>
+      <Skills skills={homeData.skills} cms={mainData} />
+      <Projects projects={homeData.projects} />
+    </div>
   );
 }

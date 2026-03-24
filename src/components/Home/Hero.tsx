@@ -1,12 +1,14 @@
 import Image from "next/image";
+import { cn } from "@/utils/cn";
 import Circle from "../common/Circle";
 import RingPatterns from "../common/RingPatterns";
+import Link from "next/link";
 
 export default function Hero({ cms }: { cms: any }) {
   const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
   const { title, description, button, profilePicture } =
     cms.home.hero;
-  // const { images } = cms.main;
+  const { images } = cms.main;
 
   return (
     <main
@@ -28,7 +30,12 @@ export default function Hero({ cms }: { cms: any }) {
           </h1>
         </div>
         <p className="h4-regular w-[30vw]">{description}</p>
-        <button className="btn-primary">{button}</button>
+        <Link
+          href={"#footer"}
+          className="button-variant-underline"
+        >
+          {button}
+        </Link>
       </div>
 
       {/* <Image */}
@@ -47,11 +54,11 @@ export default function Hero({ cms }: { cms: any }) {
         size="100px"
         coords={{ x: "49%", y: "60%" }}
       />
-      {/* <RingPatterns
+      <RingPatterns
         src={`${baseUrl}${images.patternRings}`}
         size="500px"
         coords={{ x: "-8%", y: "22%" }}
-      /> */}
+      />
     </main>
   );
 }
