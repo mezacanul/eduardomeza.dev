@@ -13,23 +13,36 @@ export default function Hero({ cms }: { cms: any }) {
   return (
     <main
       style={{ overflow: "hidden" }}
-      className="px-container relative h-screen flex items-center justify-between"
+      className={cn(
+        "flex flex-col-reverse md:flex-row items-center px-container",
+        "justify-end md:justify-center",
+        "relative h-[86dvh] md:h-screen",
+        "gap-5 md:gap-0"
+      )}
     >
       {/* Title  */}
-      <div className="relative flex flex-col items-start justify-center gap-10 z-10">
+      <div className="relative flex flex-col items-center md:items-start justify-center gap-10 z-10">
         <div className="flex flex-col items-start justify-center gap-2">
-          <h1 className="h1-bold">
-            <span>{title.top}</span>
-          </h1>
-          <h1 className="h1-bold">
+          <h1 className="h1-bold w-[100%] md:w-[70%] text-center md:text-left">
+            <span>{title.top}</span>{" "}
             <span>{title.bottom[0]}</span>
             <span className="text-green border-b-4 border-white">
               {title.bottom[1]}
             </span>
             <span>{title.bottom[2]}</span>
           </h1>
+          {/* <h1 className="h1-bold"></h1> */}
+          {/* <h1 className="h1-bold">
+            <span>{title.bottom[0]}</span>
+            <span className="text-green border-b-4 border-white">
+              {title.bottom[1]}
+            </span>
+            <span>{title.bottom[2]}</span>
+          </h1> */}
         </div>
-        <p className="h4-regular w-[30vw]">{description}</p>
+        <p className="h4-regular text-center md:text-left w-[100%] md:w-[40%]">
+          {description}
+        </p>
         <Link
           href={"#footer"}
           className="button-variant-underline"
@@ -39,7 +52,13 @@ export default function Hero({ cms }: { cms: any }) {
       </div>
 
       {/* <Image */}
-      <div className="absolute -right-5 top-0 h-full w-[60%] px-container">
+      <div
+        className={cn(
+          "relative md:absolute",
+          "right-0 md:-right-12 xl:-right-5 top-0 px-container",
+          "w-[60%] md:w-[65%] lg:w-[60%] h-[35dvh] md:h-full"
+        )}
+      >
         <Image
           src={`${baseUrl}${profilePicture}`}
           alt="Profile"
@@ -51,13 +70,19 @@ export default function Hero({ cms }: { cms: any }) {
       </div>
 
       <Circle
-        size="100px"
-        coords={{ x: "49%", y: "60%" }}
+        size={["120px", "170px", "100px"]}
+        coords={{
+          x: ["85%", "88%", "49%"],
+          y: ["25%", "75%", "60%"],
+        }}
       />
       <RingPatterns
         src={`${baseUrl}${images.patternRings}`}
-        size="500px"
-        coords={{ x: "-8%", y: "22%" }}
+        size={["600px", "600px", "500px"]}
+        coords={{
+          x: ["-115%", "-40%", "-8%"],
+          y: ["0%", "18%", "22%"],
+        }}
       />
     </main>
   );

@@ -25,7 +25,7 @@
 /* Custom Utilities */
 @layer utilities {
   .px-container {
-    @apply px-[1rem] sm:px-[4rem] lg:px-[10rem];
+    @apply px-[1rem] sm:px-[3rem] lg:px-[10rem];
   }
   .px-content {
     @apply px-[1rem] sm:px-[3rem] lg:px-[6rem];
@@ -44,7 +44,7 @@
 /* Text Utilities */
 @layer utilities {
   .h1-bold {
-    @apply text-[88px]/[88px] tracking-[-2.5px] font-bold;
+    @apply text-[45px]/[45px] md:text-[70px]/[70px] xl:text-[88px]/[88px] tracking-[-2.5px] font-bold;
   }
 
   .h2-bold {

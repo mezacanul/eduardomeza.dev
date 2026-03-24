@@ -22,9 +22,12 @@ export default function Header({ cms }: { cms: any }) {
   return (
     <header
       className={cn(
-        "fixed inset-0 z-50 px-container h-[10vh] flex items-center justify-between",
+        "relative md:fixed inset-0 z-50 px-container",
+        "h-[14dvh] flex flex-col items-center justify-center gap-2",
+        "md:flex-row md:justify-between md:h-[10vh]",
         "transition-all duration-300",
-        isScrolled ? "bg-gray" : "bg-transparent"
+        "md:bg-transparent",
+        isScrolled && "md:bg-gray"
       )}
     >
       <p
@@ -36,14 +39,29 @@ export default function Header({ cms }: { cms: any }) {
         {logo}
       </p>
 
-      <div className="flex gap-4 items-center">
-        <LangOptions />
-        <Link href={social.github} target="_blank">
-          <FaGithub size={26} className={styles.hover} />
-        </Link>
-        <Link href={social.linkedin} target="_blank">
-          <FaLinkedin size={26} className={styles.hover} />
-        </Link>
+      <div
+        className={cn(
+          "flex flex-col-reverse gap-4 items-center",
+          "md:flex-row md:justify-center"
+        )}
+      >
+        {/* Language Options */}
+        <div className="hidden md:block">
+          <LangOptions />
+        </div>
+
+        {/* Social Links */}
+        <div className="flex gap-4 items-center">
+          <Link href={social.github} target="_blank">
+            <FaGithub size={26} className={styles.hover} />
+          </Link>
+          <Link href={social.linkedin} target="_blank">
+            <FaLinkedin
+              size={26}
+              className={styles.hover}
+            />
+          </Link>
+        </div>
       </div>
     </header>
   );

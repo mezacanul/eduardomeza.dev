@@ -1,11 +1,16 @@
+"use client";
+import {
+  ResponsiveValues,
+  useResponsive,
+} from "@/hooks/useResponsive";
 import Image from "next/image";
 
 interface RingPatternsProps {
   src: string;
-  size: string;
+  size: string | any[];
   coords: {
-    x: string;
-    y: string;
+    x: string | any[];
+    y: string | any[];
   };
 }
 
@@ -14,15 +19,36 @@ export default function RingPatterns({
   size,
   coords,
 }: RingPatternsProps) {
+  const RS = {
+    size:
+      typeof size === "string"
+        ? size
+        : useResponsive(size as ResponsiveValues<string>),
+    coords: {
+      x:
+        typeof coords.x === "string"
+          ? coords.x
+          : useResponsive(
+              coords.x as ResponsiveValues<string>
+            ),
+      y:
+        typeof coords.y === "string"
+          ? coords.y
+          : useResponsive(
+              coords.y as ResponsiveValues<string>
+            ),
+    },
+  };
+
   return (
     <div
       className="absolute"
       style={{
-        width: size,
+        width: RS.size,
         height: "auto",
         // inset: `${coords.y}px ${coords.x}px`,
-        left: coords.x,
-        top: coords.y,
+        left: RS.coords.x,
+        top: RS.coords.y,
       }}
     >
       <Image

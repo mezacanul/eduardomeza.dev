@@ -57,7 +57,7 @@ function ProjectItem({
         }}
       />
       <div className="flex justify-between w-full">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 w-full border-b-2 border-white/50 pb-3 mb-1">
           <h2 className="h3-bold">{project.name}</h2>
           <p className="p1 text-green">{project.skills}</p>
         </div>
