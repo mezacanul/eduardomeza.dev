@@ -25,10 +25,10 @@
 /* Custom Utilities */
 @layer utilities {
   .px-container {
-    @apply px-[1rem] sm:px-[3rem] lg:px-[10rem];
+    @apply px-[1rem] md:px-[2.5rem] xl:px-[10rem];
   }
   .px-content {
-    @apply px-[1rem] sm:px-[3rem] lg:px-[6rem];
+    @apply px-[1rem] md:px-[3rem] xl:px-[6rem];
   }
   .button-variant-underline {
     @apply py-3 border-b-3;
@@ -48,7 +48,7 @@
   }
 
   .h2-bold {
-    @apply text-[48px]/[56px] tracking-[-1.5px] font-bold;
+    @apply text-[35px]/[40px] md:text-[40px]/[48px] xl:text-[48px]/[56px] tracking-[-1.5px] font-bold;
   }
 
   .h3-bold {

@@ -9,7 +9,7 @@ export default async function Home({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  console.log("lang", lang);
+  // console.log("lang", lang);
   const mainData = await fetchCMSData({
     region: lang,
   });
@@ -17,7 +17,7 @@ export default async function Home({
     region: lang,
     path: "home",
   });
-  console.log("skills from page.tsx", homeData.skills);
+  // console.log("skills from page.tsx", homeData.skills);
 
   return (
     <div>

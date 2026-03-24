@@ -21,9 +21,9 @@ export default function Hero({ cms }: { cms: any }) {
       )}
     >
       {/* Title  */}
-      <div className="relative flex flex-col items-center md:items-start justify-center gap-10 z-10">
+      <div className="relative flex flex-col items-center md:items-start justify-center gap-5 md:gap-10 z-10">
         <div className="flex flex-col items-start justify-center gap-2">
-          <h1 className="h1-bold w-[100%] md:w-[70%] text-center md:text-left">
+          <h1 className="h1-bold w-[100%] md:w-[70%] text-center md:text-left mb-7 md:mb-0">
             <span>{title.top}</span>{" "}
             <span>{title.bottom[0]}</span>
             <span className="text-green border-b-4 border-white">

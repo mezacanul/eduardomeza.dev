@@ -1,5 +1,6 @@
 import RingPatterns from "../common/RingPatterns";
 import SectionTitle from "../common/SectionTitle";
+import { cn } from "@/utils/cn";
 
 export default function Skills({
   skills,
@@ -11,12 +12,15 @@ export default function Skills({
   const { items, title, suffix } = skills;
   return (
     <div
-      className="relative flex flex-col items-start justify-center px-container pt-[10rem] pb-15"
+      className={cn(
+        "relative flex flex-col items-start justify-center px-container",
+        "pt-10 pb-6 md:pt-[6rem] md:pb-8 xl:pt-[8rem] xl:pb-12"
+      )}
       style={{ overflow: "hidden" }}
     >
       <SectionTitle title={title} />
 
-      <div className="grid grid-cols-3 gap-x-4 gap-y-10 w-full">
+      <div className="grid grid-cols-2 xl:grid-cols-3 gap-x-4 md:gap-x-4 gap-y-10 w-full">
         {items.map((skill: any, index: number) => (
           <SkillItem
             key={index}

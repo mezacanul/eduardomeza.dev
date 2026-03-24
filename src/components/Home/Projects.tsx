@@ -14,11 +14,11 @@ export default function Projects({
   projects: any;
 }) {
   const { items, title, buttons } = projects;
-  console.log("projects", projects);
+  // console.log("projects", projects);
   return (
     <div className="px-container pt-25 pb-[10rem]">
       <SectionTitle title={title} />
-      <div className="grid grid-cols-2 gap-4 gap-y-[4rem] gap-x-[4rem]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[2rem] xl:gap-[4rem]">
         {items.map((project: any, index: number) => (
           <ProjectItem
             key={index}
