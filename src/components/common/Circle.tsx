@@ -40,7 +40,7 @@ export default function Circle({
 
   return (
     <div
-      className="absolute"
+      className="absolute opacity-75"
       style={{
         width: RS.size,
         height: RS.size,

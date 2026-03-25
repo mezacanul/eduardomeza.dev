@@ -55,8 +55,8 @@ export default function Hero({ cms }: { cms: any }) {
       <div
         className={cn(
           "relative md:absolute",
-          "right-0 md:-right-12 xl:-right-5 top-0 md:px-container",
-          "w-[60%] md:w-[65%] lg:w-[60%] h-[35dvh] md:h-full"
+          "right-0 md:-right-12 xl:-right-5 top-0 px-container",
+          "w-[70%] md:w-[65%] lg:w-[60%] h-[35dvh] md:h-full"
         )}
       >
         <Image
@@ -70,10 +70,10 @@ export default function Hero({ cms }: { cms: any }) {
       </div>
 
       <Circle
-        size={["120px", "170px", "100px"]}
+        size={["100px", "170px", "100px"]}
         coords={{
-          x: ["85%", "88%", "49%"],
-          y: ["25%", "75%", "60%"],
+          x: ["85%", "90%", "49%"],
+          y: ["25%", "70%", "60%"],
         }}
       />
       <RingPatterns

@@ -44,11 +44,15 @@
 /* Text Utilities */
 @layer utilities {
   .h1-bold {
-    @apply text-[45px]/[45px] md:text-[70px]/[70px] xl:text-[88px]/[88px] tracking-[-2.5px] font-bold;
+    @apply text-[45px]/[52px] md:text-[70px]/[85px] xl:text-[88px]/[100px] tracking-[-2.5px] font-bold;
   }
 
   .h2-bold {
     @apply text-[35px]/[40px] md:text-[40px]/[48px] xl:text-[48px]/[56px] tracking-[-1.5px] font-bold;
+  }
+
+  .h3-regular {
+    @apply text-[30px]/[30px] md:text-[35px]/[38px] xl:text-[40px]/[40px] tracking-[-1.5px] font-normal;
   }
 
   .h3-bold {

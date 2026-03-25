@@ -2,6 +2,7 @@ import { cn } from "@/utils/cn";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import RingPatterns from "../common/RingPatterns";
+import MessageForm from "./MessageForm";
 
 export default function Footer({ cms }: { cms: any }) {
   const { title, description, form } = cms.footer;
@@ -15,6 +16,7 @@ export default function Footer({ cms }: { cms: any }) {
   };
   return (
     <footer
+      id="footer"
       className={cn(
         "px-container relative flex flex-col gap-15 w-full bg-gray pt-[6rem] pb-[4rem]",
         "items-center xl:items-start"
@@ -36,7 +38,7 @@ export default function Footer({ cms }: { cms: any }) {
           </p>
         </div>
 
-        <Form form={form} cns={cns} />
+        <MessageForm form={form} cns={cns} />
       </div>
 
       <Nav cms={cms} />
@@ -50,37 +52,6 @@ export default function Footer({ cms }: { cms: any }) {
         }}
       />
     </footer>
-  );
-}
-
-function Form({ form, cns }: { form: any; cns: any }) {
-  return (
-    <div className="flex flex-col gap-5">
-      {/* <label htmlFor="name">{form.name.label}</label> */}
-      <input
-        type="text"
-        placeholder={form.name.label}
-        className={cns.input}
-      />
-      {/* <label htmlFor="email">{form.email.label}</label> */}
-      <input
-        type="email"
-        placeholder={form.email.label}
-        className={cns.input}
-      />
-      {/* <label htmlFor="message">{form.message.label}</label> */}
-      <textarea
-        rows={5}
-        placeholder={form.message.label}
-        className={cns.textarea}
-      />
-      <button
-        className="button-variant-underline self-end"
-        type="submit"
-      >
-        {form.button}
-      </button>
-    </div>
   );
 }
 
