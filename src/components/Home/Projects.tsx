@@ -1,18 +1,19 @@
 import Image from "next/image";
-import { cn } from "@/utils/cn";
 import SectionTitle from "../common/SectionTitle";
-import Link from "next/link";
-import { FaArrowRightLong } from "react-icons/fa6";
-import {
-  FaExternalLinkAlt,
-  FaGithub,
-} from "react-icons/fa";
+import GoToButtons from "./GoToButtons";
+
+interface ProjectsProps {
+  projects: any;
+}
+
+interface ProjectItemProps {
+  project: any;
+  buttons: any;
+}
 
 export default function Projects({
   projects,
-}: {
-  projects: any;
-}) {
+}: ProjectsProps) {
   const { items, title, buttons } = projects;
   // console.log("projects", projects);
   return (
@@ -34,10 +35,7 @@ export default function Projects({
 function ProjectItem({
   project,
   buttons,
-}: {
-  project: any;
-  buttons: any;
-}) {
+}: ProjectItemProps) {
   const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
   // console.log("project", project);
 
@@ -63,54 +61,6 @@ function ProjectItem({
         </div>
       </div>
       <GoToButtons project={project} buttons={buttons} />
-    </div>
-  );
-}
-
-function GoToButtons({
-  project,
-  buttons,
-}: {
-  project: any;
-  buttons: any;
-}) {
-  const cns = cn([
-    "border-2 border-light-200 px-3 py-2 rounded-lg",
-    "flex items-center gap-2",
-    "transition-all duration-300 cursor-pointer",
-    "hover:border-green hover:bg-green hover:text-black hover:font-bold",
-  ]);
-  return (
-    <div className="flex justify-between w-full gap-2">
-      {project.type == "about" && (
-        <Link
-          href={`/projects/${project.id}`}
-          className={cns}
-        >
-          {buttons.about}
-          <FaArrowRightLong />
-        </Link>
-      )}
-      {project.type == "preview" && (
-        <>
-          <Link
-            href={project.url}
-            target="_blank"
-            className={cns}
-          >
-            <FaExternalLinkAlt size={14} />
-            {buttons.gotoProject}
-          </Link>
-          <Link
-            href={project.code}
-            target="_blank"
-            className={cns}
-          >
-            <FaGithub size={20} />
-            {buttons.gotoCode}
-          </Link>
-        </>
-      )}
     </div>
   );
 }
