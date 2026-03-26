@@ -1,23 +1,22 @@
 import { cn } from "@/utils/cn";
 import Image from "next/image";
 import RingPatterns from "../common/RingPatterns";
+import { getImagesBaseURL } from "@/utils/main";
 
 interface HeroProps {
   project: any;
-  cms: any;
 }
-export default function Hero({ project, cms }: HeroProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
+export default function Hero({ project }: HeroProps) {
+  // const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
+  const baseUrl = getImagesBaseURL();
   const {
     name,
     description,
     skills,
     img,
-    data,
     align,
     position,
   } = project;
-  const { patternRings } = cms.images;
   return (
     <div
       className={cn(
@@ -55,7 +54,7 @@ export default function Hero({ project, cms }: HeroProps) {
             <p className="text-green h4-regular">
               {position}
             </p>
-            <p className="p1 text-decoration-underline">
+            <p className="p1 border-b border-green">
               {skills}
             </p>
             <p>{description}</p>
@@ -67,7 +66,7 @@ export default function Hero({ project, cms }: HeroProps) {
         size={["400px", "500px", "650px"]}
         coords={{
           x: ["50%", "75%", "75%"],
-          y: ["75%", "25%", "30%"],
+          y: ["75%", "25%", "25%"],
         }}
       />
     </div>

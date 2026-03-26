@@ -9,10 +9,6 @@ export default async function ProjectPage({
   params: Promise<{ lang: string; projectId: string }>;
 }) {
   const { lang, projectId } = await params;
-  const mainData = await fetchCMSData({
-    region: lang,
-    resource: "main",
-  });
   const projectData = await fetchCMSData({
     region: lang,
     resource: projectId,
@@ -21,15 +17,15 @@ export default async function ProjectPage({
 
   return (
     <>
-      <Hero project={projectData} cms={mainData} />
-      <Content project={projectData} cms={mainData} />
+      <Hero project={projectData} />
+      <Content project={projectData} />
 
       <div className="w-full flex justify-center pb-[4rem] md:pb-[4rem] xl:pb-[5rem]">
         <Link
           className="button-variant-underline"
           href={`/${lang}`}
         >
-          {mainData.goto.home}
+          {projectData.gotoHome}
         </Link>
       </div>
     </>

@@ -1,17 +1,14 @@
 import Image from "next/image";
 import { cn } from "@/utils/cn";
+import { getImagesBaseURL } from "@/utils/main";
 
 interface ContentProps {
   project: any;
-  cms: any;
 }
-export default function Content({
-  project,
-  cms,
-}: ContentProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
+export default function Content({ project }: ContentProps) {
+  // const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
+  const baseUrl = getImagesBaseURL();
   const { title, data, position } = project;
-  const { patternRings } = cms.images;
   const total = data.length;
   return (
     // <div>
