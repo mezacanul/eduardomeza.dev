@@ -13,7 +13,7 @@ export default async function Home({
     region: lang,
     resource: "home",
   });
-  console.log("homeData", homeData);
+  // console.log("homeData", homeData);
 
   return (
     <div>

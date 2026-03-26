@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
-const remoteURL = process.env.NEXT_PUBLIC_CMS_URL;
+const remoteHost = new URL(
+  process.env.NEXT_PUBLIC_CMS_URL as string
+).hostname;
+// console.log("remoteHost", remoteHost);
 
 export default {
   /* config options here */
@@ -22,7 +25,7 @@ export default {
       },
       {
         protocol: "https",
-        hostname: remoteURL,
+        hostname: remoteHost,
         pathname: "/images/**",
       },
     ],

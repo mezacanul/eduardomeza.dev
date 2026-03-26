@@ -32,7 +32,7 @@ export default async function RootLayout({
     region: lang,
     resource: "main",
   });
-  console.log("cmsData", cmsData);
+  // console.log("cmsData", cmsData);
   return (
     <html
       lang="en"
