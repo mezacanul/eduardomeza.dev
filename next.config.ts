@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+const remoteURL = process.env.NEXT_PUBLIC_CMS_URL;
 
 export default {
   /* config options here */
@@ -15,9 +16,13 @@ export default {
     remotePatterns: [
       {
         protocol: "http",
-        // hostname: "localhost",
-        hostname: "127.0.0.1",
+        hostname: "localhost",
         port: "5000",
+        pathname: "/images/**",
+      },
+      {
+        protocol: "https",
+        hostname: remoteURL,
         pathname: "/images/**",
       },
     ],
