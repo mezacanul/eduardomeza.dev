@@ -24,6 +24,7 @@ export default function Content({ project }: ContentProps) {
             // style={{ gridTemplateColumns: "8fr 6fr" }}
           >
             <Image
+              loading="eager"
               src={`${baseUrl}${d.img}`}
               alt={"test"}
               width={1000}

@@ -38,6 +38,7 @@ export default function Hero({ project }: HeroProps) {
           <Image
             src={`${baseUrl}${img}`}
             alt={name}
+            loading="eager"
             width={1000}
             height={400}
             className="object-cover w-full h-full z-10 relative rounded-sm shadow-sm"
