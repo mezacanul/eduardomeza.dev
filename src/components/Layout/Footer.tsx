@@ -44,7 +44,6 @@ export default function Footer({ cms }: { cms: any }) {
       <Nav cms={cms} />
 
       <RingPatterns
-        src={cms.images.patternRings}
         size={["500px", "450px", "550px"]}
         coords={{
           x: ["-90%", "-30%", "-15%"],

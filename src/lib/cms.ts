@@ -1,36 +1,21 @@
-// const baseUrl = "http://localhost:5000";
-
-type cmsRequestProps = {
+type RequestProps = {
   region: string;
-  path?: string;
+  resource: string;
 };
 
 export async function fetchCMSData({
   region,
-  path,
-}: cmsRequestProps) {
-  const url = `${
-    process.env.NEXT_PUBLIC_CMS_URL
-  }/api/locale/${region}${path ? `?path=${path}` : ""}`;
+  resource,
+}: RequestProps) {
+  const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
+  const url = `${process.env.NEXT_PUBLIC_CMS_URL}/api/locale/${region}?projectId=${projectId}&resource=${resource}`;
 
   const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) {
     throw new Error("Failed to fetch CMS data");
+  } else if (res.status === 200) {
+    const data = await res.json();
+    const { content } = data;
+    return content;
   }
-  return res.json();
-}
-
-export async function fetchProjectData({
-  region,
-  projectId,
-}: {
-  region: string;
-  projectId: string;
-}) {
-  const url = `${process.env.NEXT_PUBLIC_CMS_URL}/api/locale/${region}?path=projects&projectId=${projectId}`;
-  const res = await fetch(url, { cache: "no-store" });
-  if (!res.ok) {
-    throw new Error("Failed to fetch project data");
-  }
-  return res.json();
 }

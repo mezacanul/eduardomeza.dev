@@ -28,7 +28,11 @@ export default async function RootLayout({
   children,
 }: Readonly<RootLayoutProps>) {
   const { lang } = await params;
-  const cmsData = await fetchCMSData({ region: lang });
+  const cmsData = await fetchCMSData({
+    region: lang,
+    resource: "main",
+  });
+  console.log("cmsData", cmsData);
   return (
     <html
       lang="en"

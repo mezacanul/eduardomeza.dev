@@ -9,25 +9,16 @@ export default async function Home({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  // console.log("lang", lang);
-  const mainData = await fetchCMSData({
-    region: lang,
-  });
   const homeData = await fetchCMSData({
     region: lang,
-    path: "home",
+    resource: "home",
   });
-  // console.log("skills from page.tsx", homeData.skills);
+  console.log("homeData", homeData);
 
   return (
     <div>
-      <Hero
-        cms={{
-          home: homeData,
-          main: mainData,
-        }}
-      />
-      <Skills skills={homeData.skills} cms={mainData} />
+      <Hero cms={homeData} />
+      <Skills skills={homeData.skills} />
       <Projects projects={homeData.projects} />
     </div>
   );

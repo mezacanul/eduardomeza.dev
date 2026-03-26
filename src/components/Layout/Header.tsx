@@ -4,9 +4,11 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import LangOptions from "../common/LangOptions";
 import { cn } from "@/utils/cn";
 import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 
 export default function Header({ cms }: { cms: any }) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { lang } = useParams();
   // console.log("cms", cms);
   const { logo, social } = cms;
   const styles = {
@@ -31,14 +33,15 @@ export default function Header({ cms }: { cms: any }) {
       )}
     >
       <div className="relative w-full flex justify-center md:justify-start">
-        <p
+        <Link
+          href={`/${lang}`}
           className={cn(
-            "h3-bold cursor-default",
+            "h3-bold cursor-pointer",
             styles.hover
           )}
         >
           {logo}
-        </p>
+        </Link>
         <div className="block md:hidden absolute top-1.5 right-0">
           <LangOptions />
         </div>

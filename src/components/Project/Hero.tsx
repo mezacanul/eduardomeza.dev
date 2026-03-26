@@ -8,8 +8,15 @@ interface HeroProps {
 }
 export default function Hero({ project, cms }: HeroProps) {
   const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
-  const { name, description, skills, img, data, align } =
-    project;
+  const {
+    name,
+    description,
+    skills,
+    img,
+    data,
+    align,
+    position,
+  } = project;
   const { patternRings } = cms.images;
   return (
     <div
@@ -46,6 +53,9 @@ export default function Hero({ project, cms }: HeroProps) {
           <div className="flex flex-col gap-4 justify-center items-center w-[80%] text-center">
             <h1 className="h2-bold">{name}</h1>
             <p className="text-green h4-regular">
+              {position}
+            </p>
+            <p className="p1 text-decoration-underline">
               {skills}
             </p>
             <p>{description}</p>
@@ -54,7 +64,6 @@ export default function Hero({ project, cms }: HeroProps) {
       </div>
 
       <RingPatterns
-        src={`${baseUrl}${patternRings}`}
         size={["400px", "500px", "650px"]}
         coords={{
           x: ["50%", "75%", "75%"],

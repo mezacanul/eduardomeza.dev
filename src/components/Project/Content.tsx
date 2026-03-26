@@ -10,10 +10,12 @@ export default function Content({
   cms,
 }: ContentProps) {
   const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
-  const { title, data } = project;
+  const { title, data, position } = project;
   const { patternRings } = cms.images;
   const total = data.length;
   return (
+    // <div>
+    //   <h2 className="text-center h2-bold">{position}</h2>
     <div className="px-content flex flex-col pt-10 pb-5 md:pt-15 md:pb-10 lg:pt-[7rem] lg:pb-[2rem]">
       {data.map((d: any, index: number) => (
         <div key={index}>
@@ -36,7 +38,7 @@ export default function Content({
             />
             <h4
               className={cn(
-                "h4-regular text-center",
+                "h4-regular text-center"
                 // index % 2 === 0 && "order-1"
               )}
             >
@@ -52,5 +54,6 @@ export default function Content({
         </div>
       ))}
     </div>
+    // </div>
   );
 }

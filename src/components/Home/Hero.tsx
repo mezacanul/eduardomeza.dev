@@ -7,8 +7,7 @@ import Link from "next/link";
 export default function Hero({ cms }: { cms: any }) {
   const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
   const { title, description, button, profilePicture } =
-    cms.home.hero;
-  const { images } = cms.main;
+    cms.hero;
 
   return (
     <main
@@ -77,7 +76,6 @@ export default function Hero({ cms }: { cms: any }) {
         }}
       />
       <RingPatterns
-        src={`${baseUrl}${images.patternRings}`}
         size={["600px", "600px", "500px"]}
         coords={{
           x: ["-115%", "-40%", "-8%"],

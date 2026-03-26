@@ -1,4 +1,4 @@
-import { fetchCMSData, fetchProjectData } from "@/lib/cms";
+import { fetchCMSData } from "@/lib/cms";
 import Link from "next/link";
 import Hero from "@/components/Project/Hero";
 import Content from "@/components/Project/Content";
@@ -9,14 +9,15 @@ export default async function ProjectPage({
   params: Promise<{ lang: string; projectId: string }>;
 }) {
   const { lang, projectId } = await params;
-  const projectData = await fetchProjectData({
-    region: lang,
-    projectId,
-  });
   const mainData = await fetchCMSData({
     region: lang,
+    resource: "main",
   });
-  console.log("projectData", projectData);
+  const projectData = await fetchCMSData({
+    region: lang,
+    resource: projectId,
+  });
+  // console.log("projectData", projectData);
 
   return (
     <>

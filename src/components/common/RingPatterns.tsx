@@ -6,7 +6,6 @@ import {
 import Image from "next/image";
 
 interface RingPatternsProps {
-  src: string;
   size: string | any[];
   coords: {
     x: string | any[];
@@ -15,7 +14,6 @@ interface RingPatternsProps {
 }
 
 export default function RingPatterns({
-  src,
   size,
   coords,
 }: RingPatternsProps) {
@@ -52,7 +50,7 @@ export default function RingPatterns({
       }}
     >
       <Image
-        src={src}
+        src={"/images/ring-patterns.png"}
         alt="Ring Patterns"
         width={200}
         height={100}

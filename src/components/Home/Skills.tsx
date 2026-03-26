@@ -4,10 +4,8 @@ import { cn } from "@/utils/cn";
 
 export default function Skills({
   skills,
-  cms,
 }: {
   skills: any;
-  cms: any;
 }) {
   const { items, title, suffix } = skills;
   return (
@@ -31,7 +29,6 @@ export default function Skills({
       </div>
 
       <RingPatterns
-        src={cms.images.patternRings}
         size="700px"
         coords={{ x: "70%", y: "60%" }}
       />
