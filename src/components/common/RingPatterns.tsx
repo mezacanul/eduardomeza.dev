@@ -50,7 +50,7 @@ export default function RingPatterns({
       }}
     >
       <Image
-        src={"/images/ring-patterns.png"}
+        src={"/images/pattern-rings.svg"}
         alt="Ring Patterns"
         width={200}
         height={100}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SectionTitle from "../common/SectionTitle";
 import GoToButtons from "./GoToButtons";
+import { getImagesBaseURL } from "@/utils/main";
 
 interface ProjectsProps {
   projects: any;
@@ -36,7 +37,8 @@ function ProjectItem({
   project,
   buttons,
 }: ProjectItemProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
+  // const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
+  const baseUrl = getImagesBaseURL();
   // console.log("project", project);
 
   return (

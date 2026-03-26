@@ -3,9 +3,11 @@ import { cn } from "@/utils/cn";
 import Circle from "../common/Circle";
 import RingPatterns from "../common/RingPatterns";
 import Link from "next/link";
+import { getImagesBaseURL } from "@/utils/main";
 
 export default function Hero({ cms }: { cms: any }) {
-  const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
+  // const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
+  const baseUrl = getImagesBaseURL();
   const { title, description, button, profilePicture } =
     cms.hero;
 
