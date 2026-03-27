@@ -12,6 +12,7 @@ export default function Footer({ cms }: { cms: any }) {
       "w-full p-2 border-b-2 border-white placeholder-white/50 h4-regular focus:outline-none",
     textarea:
       "w-full p-2 border-b-2 border-white placeholder-white/50 h4-regular focus:outline-none",
+    error: "text-red text-right p1-regular",
     button: "w-full p-2 border-b-2 border-white",
   };
   return (

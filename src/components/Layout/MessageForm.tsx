@@ -2,63 +2,125 @@
 import { cn } from "@/utils/cn";
 import { useState } from "react";
 import { ImSpinner2 } from "react-icons/im";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  contactFormSchema,
+  ContactFormType,
+} from "@/lib/schemas";
+import { sendMessage } from "@/lib/actions";
 
-type Status = "success" | "error" | "loading" | null;
-
+// type Status = "success" | "error" | "loading" | null;
+interface FormComponentProps {
+  form: any;
+  cns: any;
+}
 export default function MessageForm({
   form,
   cns,
-}: {
-  form: any;
-  cns: any;
-}) {
-  const [status, setStatus] = useState<Status>(null);
+}: FormComponentProps) {
+  const [response, setResponse] = useState({
+    status: "",
+    message: "",
+  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
 
-  function sendMessage() {
-    setStatus("loading");
-    // console.log("sendMessage");
-    setTimeout(() => {
-      // setStatus("error");
-      setStatus("success");
-    }, 1000);
+  async function onSubmit(data: ContactFormType) {
+    console.log("data", data);
+    const response = await sendMessage(data);
+    if (response.status == 200) {
+      setResponse({
+        status: "success",
+        message: response.message,
+      });
+    } else {
+      setResponse({
+        status: "error",
+        message: response.message,
+      });
+    }
   }
   return (
-    <div className={"relative"}>
+    <form
+      className={"relative"}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div
         className={cn(
           "flex flex-col gap-5",
-          status == "success" && "opacity-0"
+          response.status === "success" && "opacity-0"
         )}
       >
-        {/* <label htmlFor="name">{form.name.label}</label> */}
-        <input
-          type="text"
-          placeholder={form.name.label}
-          className={cns.input}
-        />
-        {/* <label htmlFor="email">{form.email.label}</label> */}
-        <input
-          type="email"
-          placeholder={form.email.label}
-          className={cns.input}
-        />
-        {/* <label htmlFor="message">{form.message.label}</label> */}
-        <textarea
-          rows={5}
-          placeholder={form.message.label}
-          className={cns.textarea}
-        />
+        {/* Form fields  */}
+        <div className="flex flex-col gap-2">
+          <input
+            // type="text"
+            {...register("name")}
+            placeholder={form.name.label}
+            className={cn(
+              cns.input,
+              errors.name && "border-red"
+            )}
+          />
+          {errors.name && (
+            <p className={cns.error}>{form.name.error}</p>
+          )}
+        </div>
 
+        <div className="flex flex-col gap-2">
+          <input
+            // type="email"
+            {...register("email")}
+            placeholder={form.email.label}
+            className={cn(
+              cns.input,
+              errors.email && "border-red"
+            )}
+          />
+          {errors.email && (
+            <p className={cns.error}>{form.email.error}</p>
+          )}
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <textarea
+            rows={5}
+            {...register("message")}
+            placeholder={form.message.label}
+            className={cn(
+              cns.textarea,
+              errors.message && "border-red"
+            )}
+          />
+          {errors.message && (
+            <p className={cns.error}>
+              {form.message.error}
+            </p>
+          )}
+        </div>
+
+        {/* Submit button, loading state and error message */}
         <div
           className={cn(
             "flex items-center justify-end gap-2",
-            status === "error" && "justify-between"
+            response.status === "error" && "justify-between"
           )}
         >
-          {status === "error" && (
+          {response.status === "error" && (
             <p className="text-red">{form.error}</p>
           )}
-          {status === "loading" && (
+          {isSubmitting && (
             <span className="py-3">
               <ImSpinner2
                 size={30}
@@ -66,21 +128,23 @@ export default function MessageForm({
               />
             </span>
           )}
-          {status !== "loading" && (
+          {!isSubmitting && (
             <button
-              onClick={sendMessage}
+              // onClick={sendMessage}
               className="button-variant-underline self-end"
-              // type="submit"
+              type="submit"
             >
               {form.button}
             </button>
           )}
         </div>
       </div>
-      {status === "success" && (
+
+      {/* Success message */}
+      {response.status === "success" && (
         <SuccessMessage message={form.success} />
       )}
-    </div>
+    </form>
   );
 }
 

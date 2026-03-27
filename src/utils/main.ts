@@ -4,4 +4,11 @@ function getImagesBaseURL() {
   return `${baseUrl}/images/${projectId}`;
 }
 
-export { getImagesBaseURL };
+function scrollTo(id: string) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+export { getImagesBaseURL, scrollTo };

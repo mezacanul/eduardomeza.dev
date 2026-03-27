@@ -21,7 +21,7 @@ export default function Hero({ project }: HeroProps) {
     <div
       className={cn(
         "relative flex justify-center px-content",
-        "h-[86dvh] lg:h-dvh pt-10 sm:pt-30 lg:pt-0 items-start lg:items-center",
+        "min-h-[86dvh] sm:min-h-dvh pt-10 sm:pt-30 lg:pt-0 items-start lg:items-center",
         "overflow-hidden"
       )}
     >
@@ -50,7 +50,7 @@ export default function Hero({ project }: HeroProps) {
 
         {/* Content  */}
         <div className="flex justify-center items-center">
-          <div className="flex flex-col gap-4 justify-center items-center w-[80%] text-center">
+          <div className="flex flex-col gap-4 justify-center items-center w-full sm:w-[80%] text-center">
             <h1 className="h2-bold">{name}</h1>
             <p className="text-green h4-regular">
               {position}

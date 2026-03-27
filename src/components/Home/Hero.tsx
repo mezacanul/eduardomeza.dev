@@ -3,7 +3,8 @@ import { cn } from "@/utils/cn";
 import Circle from "../common/Circle";
 import RingPatterns from "../common/RingPatterns";
 import Link from "next/link";
-import { getImagesBaseURL } from "@/utils/main";
+import { getImagesBaseURL, scrollTo } from "@/utils/main";
+import ContactButton from "./ContactButton";
 
 export default function Hero({ cms }: { cms: any }) {
   // const baseUrl = process.env.NEXT_PUBLIC_CMS_URL;
@@ -44,12 +45,7 @@ export default function Hero({ cms }: { cms: any }) {
         <p className="h4-regular text-center md:text-left w-[100%] md:w-[40%]">
           {description}
         </p>
-        <Link
-          href={"#footer"}
-          className="button-variant-underline"
-        >
-          {button}
-        </Link>
+        <ContactButton text={button} />
       </div>
 
       {/* <Image */}
