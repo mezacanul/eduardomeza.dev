@@ -2,6 +2,20 @@ import { fetchCMSData } from "@/lib/cms";
 import Hero from "@/components/Home/Hero";
 import Skills from "@/components/Home/Skills";
 import Projects from "@/components/Home/Projects";
+import { getMetadataObject } from "@/utils/metadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const homeData = await fetchCMSData({
+    region: lang,
+    resource: "home",
+  });
+  return getMetadataObject(homeData.metadata);
+}
 
 export default async function Home({
   params,
