@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 
 export default function LangOptions() {
   const { lang } = useParams();
+
   const isActive = (current: string) =>
     cn([
       "transition-all p1 duration-300 border-b-2 border-transparent",

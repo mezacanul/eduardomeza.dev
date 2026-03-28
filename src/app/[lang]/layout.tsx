@@ -12,11 +12,11 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-// export const metadata: Metadata = {
-//   title: "Eduardo Meza - Full Stack Software Engineer",
-//   description:
-//     "Full Stack Software Engineer with a passion for building scalable and efficient web applications.",
-// };
+export const metadata: Metadata = {
+  title: "Eduardo Meza",
+  description:
+    "Software Engineer",
+};
 
 type RootLayoutProps = {
   params: Promise<{ lang: string }>;

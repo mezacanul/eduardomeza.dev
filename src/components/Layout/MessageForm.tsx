@@ -9,6 +9,7 @@ import {
   ContactFormType,
 } from "@/lib/schemas";
 import { sendMessage } from "@/lib/actions";
+import { useParams } from "next/navigation";
 
 // type Status = "success" | "error" | "loading" | null;
 interface FormComponentProps {
@@ -19,6 +20,7 @@ export default function MessageForm({
   form,
   cns,
 }: FormComponentProps) {
+  const { lang } = useParams();
   const [response, setResponse] = useState({
     status: "",
     message: "",
@@ -38,7 +40,11 @@ export default function MessageForm({
 
   async function onSubmit(data: ContactFormType) {
     console.log("data", data);
-    const response = await sendMessage(data);
+    const response = await sendMessage({
+      ...data,
+      region: lang as string,
+    });
+    console.log("action response", response);
     if (response.status == 200) {
       setResponse({
         status: "success",
@@ -63,33 +69,54 @@ export default function MessageForm({
         )}
       >
         {/* Form fields  */}
-        <div className="flex flex-col gap-2">
-          <input
-            // type="text"
-            {...register("name")}
-            placeholder={form.name.label}
-            className={cn(
-              cns.input,
-              errors.name && "border-red"
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-start lg:gap-8 gap-4">
+          <div className="flex flex-col gap-2">
+            <input
+              // type="text"
+              {...register("name")}
+              placeholder={form.name.label}
+              className={cn(
+                cns.input,
+                errors.name && "border-red"
+              )}
+            />
+            {errors.name && (
+              <p className={cns.error}>{form.name.error}</p>
             )}
-          />
-          {errors.name && (
-            <p className={cns.error}>{form.name.error}</p>
-          )}
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <input
+              // type="email"
+              {...register("email")}
+              placeholder={form.email.label}
+              className={cn(
+                cns.input,
+                errors.email && "border-red"
+              )}
+            />
+            {errors.email && (
+              <p className={cns.error}>
+                {form.email.error}
+              </p>
+            )}
+          </div>
         </div>
 
         <div className="flex flex-col gap-2">
           <input
             // type="email"
-            {...register("email")}
-            placeholder={form.email.label}
+            {...register("subject")}
+            placeholder={form.subject.label}
             className={cn(
               cns.input,
-              errors.email && "border-red"
+              errors.subject && "border-red"
             )}
           />
-          {errors.email && (
-            <p className={cns.error}>{form.email.error}</p>
+          {errors.subject && (
+            <p className={cns.error}>
+              {form.subject.error}
+            </p>
           )}
         </div>
 
@@ -155,7 +182,7 @@ function SuccessMessage({ message }: { message: Message }) {
   return (
     <div className="absolute inset-0 w-full h-full flex flex-col gap-6 text-center items-center justify-center">
       <p className="text-green h3-regular">{top}</p>
-      <p className="p1">{bottom}</p>
+      {/* <p className="p1">{bottom}</p> */}
     </div>
   );
 }
