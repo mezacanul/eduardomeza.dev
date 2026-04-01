@@ -3,6 +3,7 @@ import Hero from "@/components/Home/Hero";
 import Skills from "@/components/Home/Skills";
 import Projects from "@/components/Home/Projects";
 import { getMetadataObject } from "@/utils/metadata";
+import About from "@/components/Home/About";
 
 export async function generateMetadata({
   params,
@@ -32,8 +33,9 @@ export default async function Home({
   return (
     <div>
       <Hero cms={homeData} />
-      <Skills skills={homeData.skills} />
+      <About about={homeData.about} />
       <Projects projects={homeData.projects} />
+      <Skills skills={homeData.skills} />
     </div>
   );
 }

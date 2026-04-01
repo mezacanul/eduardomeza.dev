@@ -12,7 +12,7 @@ export default function Skills({
     <div
       className={cn(
         "relative flex flex-col items-start justify-center px-container",
-        "pt-10 pb-6 md:pt-[6rem] md:pb-8 xl:pt-[8rem] xl:pb-12"
+        "pt-3 pb-[6rem] md:pt-[1rem] md:pb-[7rem] xl:pt-[1rem] xl:pb-[8rem]"
       )}
       style={{ overflow: "hidden" }}
     >

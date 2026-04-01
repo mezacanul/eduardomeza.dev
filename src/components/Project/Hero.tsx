@@ -2,6 +2,7 @@ import { cn } from "@/utils/cn";
 import Image from "next/image";
 import RingPatterns from "../common/RingPatterns";
 import { getImagesBaseURL } from "@/utils/main";
+import GreenBackdrop from "../common/GreenBackdrop";
 
 interface HeroProps {
   project: any;
@@ -71,19 +72,6 @@ export default function Hero({ project }: HeroProps) {
         }}
       />
     </div>
-  );
-}
-
-function GreenBackdrop() {
-  return (
-    <div
-      className={cn(
-        "absolute w-full h-full bg-green rounded-sm",
-        // "-top-3 -left-2",
-        "md:-top-5 md:-left-5",
-        "xl:-top-8 xl:-left-8"
-      )}
-    />
   );
 }
 
