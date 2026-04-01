@@ -77,9 +77,20 @@ function Content({ content, index }: ContentProps) {
         )}
       >
         {text.map((item: any, index: number) => (
-          <p key={index} className="p1">
-            {item}
-          </p>
+          <div
+            key={index}
+            className={cn("p1 flex flex-col gap-2")}
+          >
+            <p>{item}</p>
+            <div
+              className={cn(
+                "pb-5 mb-2 border-b border-green w-[50%]",
+                index === text.length - 1
+                  ? "border-b-0"
+                  : ""
+              )}
+            />
+          </div>
         ))}
       </div>
     </div>
