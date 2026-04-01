@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cn } from "@/utils/cn";
 import SectionTitle from "../common/SectionTitle";
 import GoToButtons from "./GoToButtons";
 import { getImagesBaseURL } from "@/utils/main";
@@ -18,7 +19,13 @@ export default function Projects({
   const { items, title, buttons } = projects;
   // console.log("projects", projects);
   return (
-    <div className="px-container pt-25 pb-[10rem]">
+    <div
+      className={cn(
+        "px-container",
+        "pt-[3rem] md:pt-[6rem] xl:pt-25",
+        "pb-[5rem] md:pb-[6rem] xl:pb-[8rem]"
+      )}
+    >
       <SectionTitle title={title} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-[3rem] xl:gap-[4rem]">
         {items.map((project: any, index: number) => (

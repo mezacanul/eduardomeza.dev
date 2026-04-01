@@ -18,7 +18,7 @@ export default function Hero({ cms }: { cms: any }) {
       className={cn(
         "flex flex-col-reverse md:flex-row items-center px-container",
         "justify-end md:justify-center",
-        "relative h-[86dvh] md:h-screen",
+        "relative min-h-[86dvh] md:h-screen",
         "gap-5 md:gap-0"
       )}
     >
