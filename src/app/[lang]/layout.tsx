@@ -31,6 +31,10 @@ export default async function RootLayout({
     region: lang,
     resource: "main",
   });
+  const homeData = await fetchCMSData({
+    region: lang,
+    resource: "home",
+  });
   // console.log("cmsData", cmsData);
   return (
     <html
@@ -44,7 +48,7 @@ export default async function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(cmsData.jsonLD).replace(
+            __html: JSON.stringify(homeData.jsonLD).replace(
               /</g,
               "\\u003c"
             ),
