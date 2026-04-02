@@ -14,8 +14,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "Eduardo Meza",
-  description:
-    "Software Engineer",
+  description: "Software Engineer",
 };
 
 type RootLayoutProps = {
@@ -42,6 +41,12 @@ export default async function RootLayout({
         <Header cms={cmsData} />
         {children}
         <Footer cms={cmsData} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(cmsData.jsonLD),
+          }}
+        />
       </body>
     </html>
   );

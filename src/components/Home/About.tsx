@@ -25,15 +25,13 @@ export default function About({ about }: { about: any }) {
           />
         ))}
 
-        <button
-          onClick={() => {
-            window.open(urlToFile, "_blank");
-          }}
-          // href={urlToCV}
+        <Link
+          href={urlToFile}
+          target="_blank"
           className="button-variant-underline"
         >
           {button}
-        </button>
+        </Link>
       </div>
     </div>
   );
