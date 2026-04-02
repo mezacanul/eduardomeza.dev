@@ -44,6 +44,14 @@ function getMetadataObject(metadata: any) {
         "max-snippet": -1,
       },
     },
+    alternates: {
+      canonical: `${baseUrl}/en`,
+      languages: {
+        en: `${baseUrl}/en`,
+        es: `${baseUrl}/es`,
+        "x-default": `${baseUrl}/en`,
+      },
+    },
   };
 }
 
