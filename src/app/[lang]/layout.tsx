@@ -15,6 +15,9 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Eduardo Meza",
   description: "Software Engineer",
+  verification: {
+    google: "q3gUoK2EGqkr-rVAr7sIhYCKKQheATXph8f-H84_d7w",
+  },
 };
 
 type RootLayoutProps = {
